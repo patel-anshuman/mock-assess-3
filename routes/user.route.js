@@ -10,7 +10,7 @@ const userRouter = Router();
 //Register
 userRouter.post('/register', async (req,res) => {
     try {
-        const {name, email, password} = req.query;
+        const {name, email, password} = req.body;
         const isUser = await UserModel.findOne({email});
         if(isUser){
             res.status(200).json({msg: "User already exists"});
